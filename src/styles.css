@@ -1,0 +1,62 @@
+.container {
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 650px;
+  min-width: 450px;
+  border-radius: 10px;
+}
+
+.city-name {
+  font-weight: bold;
+}
+
+.temp-units {
+  font-size: small;
+  position: relative;
+  top: -12px;
+}
+
+.details {
+  display: block;
+}
+.main-emoji {
+  font-size: 100px;
+}
+
+.daily-col {
+  text-align: center;
+}
+
+.day {
+  font-weight: bold;
+  font-size: larger;
+}
+
+.emoji {
+  font-size: 50px;
+  text-align: center;
+}
+
+.weather-stats {
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.signature {
+  font-family: "PT Mono", monospace;
+  padding-left: 85px;
+}
+
+#display-date {
+  font-size: 20px;
+}
+
+.head-list {
+  padding: 0;
+}
+
+.head {
+  display: block;
+}
