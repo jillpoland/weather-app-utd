@@ -1,3 +1,8 @@
+.weather-app-wrapper {
+  max-width: 650px;
+  margin: auto;
+}
+
 .weather-app {
   border: 1px solid #dadde1;
   padding: 15px;
@@ -12,9 +17,10 @@
 }
 
 .temp-units {
-  font-size: small;
+  font-size: 16px;
   position: relative;
-  top: -12px;
+  top: -14px;
+  padding: 0;
 }
 
 .details {
@@ -47,6 +53,7 @@
 .signature {
   font-family: "PT Mono", monospace;
   padding-left: 85px;
+  margin: 20px auto;
 }
 
 #display-date {
@@ -59,4 +66,8 @@
 
 .head {
   display: block;
+}
+
+a {
+  text-decoration: none;
 }

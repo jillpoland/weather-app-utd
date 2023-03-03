@@ -18,100 +18,108 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
-  <link rel="stylesheet" href="src/styles.css" />
   <body>
     <div class="container">
-      <div class="weather-app">
-        <form action="" id="input-city">
-          <div class="form-group">
-            <input
-              type="search"
-              class="form-control"
-              id="city-search"
-              placeholder="Search your city"
-            />
-          </div>
-          <button type="submit" class="btn btn-light" id="search-button">
-            Search
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form action="" id="input-city">
+            <div class="form-group">
+              <input
+                type="search"
+                class="form-control"
+                id="city-search"
+                placeholder="Search your city"
+              />
+            </div>
+            <button type="submit" class="btn btn-light" id="search-button">
+              Search
+            </button>
+          </form>
+          <button type="submit" class="btn btn-light" id="current-city-button">
+            Current City
           </button>
-        </form>
-        <button type="submit" class="btn btn-light" id="current-city-button">
-          Current City
-        </button>
-        <div class="row">
-          <h1 class="col-8">
-            <ul class="head-list">
-              <li class="city-name head" id="city-display-name">Boston</li>
-              <li id="display-date" class="head">Date Time</li>
-              <li class="head">
-                <span id="display-temp"> 34 </span>
-                <span class="float-left temp-units"> °F |°C </span>
-              </li>
-            </ul>
-          </h1>
-          <h3 class="col-4 additional-info">
-            <ul>
-              <li class="details">
-                <span class="float-right main-emoji">☁️</span>
-              </li>
-            </ul>
-          </h3>
+          <div class="row">
+            <h1 class="col-8">
+              <ul class="head-list d-flex flex-column">
+                <li class="city-name head float-left" id="city-display-name">
+                  Boston
+                </li>
+                <li id="display-date" class="head">Date Time</li>
+                <li class="head">
+                  <span id="display-temp" class="float-left">34</span
+                  ><span class="float-left temp-units"
+                    >°F | <a href="#">°C</a></span
+                  >
+                </li>
+              </ul>
+            </h1>
+            <h3 class="col-4 additional-info">
+              <ul>
+                <li class="details">
+                  <span class="float-right main-emoji">☁️</span>
+                </li>
+              </ul>
+            </h3>
+          </div>
+          <div class="row">
+            <div class="col daily-col">
+              <div class="day">Monday</div>
+              <div class="emoji">🌨️</div>
+              <p class="weather-stats">
+                35°
+                <br />
+                90%
+              </p>
+            </div>
+            <div class="col daily-col">
+              <div class="day">Tuesday</div>
+              <div class="emoji">🌨️</div>
+              <p class="weather-stats">
+                30°
+                <br />
+                75%
+              </p>
+            </div>
+            <div class="col daily-col">
+              <div class="day">Wednesday</div>
+              <div class="emoji">☁️</div>
+              <p class="weather-stats">
+                35°
+                <br />
+                7%
+              </p>
+            </div>
+            <div class="col daily-col">
+              <div class="day">Thursday</div>
+              <div class="emoji">🌥️</div>
+              <p class="weather-stats">
+                40°
+                <br />
+                3%
+              </p>
+            </div>
+            <div class="col daily-col">
+              <div class="day">Friday</div>
+              <div class="emoji">🌨️</div>
+              <p class="weather-stats">
+                28°
+                <br />
+                80%
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="row">
-          <div class="col daily-col">
-            <div class="day">Monday</div>
-            <div class="emoji">🌨️</div>
-            <p class="weather-stats">
-              35°
-              <br />
-              90%
-            </p>
-          </div>
-          <div class="col daily-col">
-            <div class="day">Tuesday</div>
-            <div class="emoji">🌨️</div>
-            <p class="weather-stats">
-              30°
-              <br />
-              75%
-            </p>
-          </div>
-          <div class="col daily-col">
-            <div class="day">Wednesday</div>
-            <div class="emoji">☁️</div>
-            <p class="weather-stats">
-              35°
-              <br />
-              7%
-            </p>
-          </div>
-          <div class="col daily-col">
-            <div class="day">Thursday</div>
-            <div class="emoji">🌥️</div>
-            <p class="weather-stats">
-              40°
-              <br />
-              3%
-            </p>
-          </div>
-          <div class="col daily-col">
-            <div class="day">Friday</div>
-            <div class="emoji">🌨️</div>
-            <p class="weather-stats">
-              28°
-              <br />
-              80%
-            </p>
-          </div>
+        <div class="signature">
+          <a
+            href="https://github.com/jillpoland/weather-app-utd"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Jillian Poland 👩‍💻
         </div>
       </div>
-    </div>
-    <div class="signature">
-      <a href="https://github.com/jillpoland/weather-app-utd" target="_blank"
-        >Open-source code</a
-      >
-      by Jillian Poland 👩‍💻
     </div>
     <script src="src/index.js"></script>
   </body>
