@@ -19,7 +19,7 @@
 .temp-units {
   font-size: 16px;
   position: relative;
-  top: -14px;
+  top: -25px;
   padding: 0;
 }
 
@@ -27,7 +27,8 @@
   display: block;
 }
 .main-emoji {
-  font-size: 100px;
+  font-size: 65px;
+  padding: 5px;
 }
 
 .daily-col {
@@ -44,7 +45,7 @@
   text-align: center;
 }
 
-.weather-stats {
+.daily-weather-stats {
   font-weight: bold;
   display: block;
   text-align: center;
@@ -58,6 +59,10 @@
 
 #display-date {
   font-size: 20px;
+}
+
+#display-temp {
+  font-size: 50px;
 }
 
 .head-list {

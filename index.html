@@ -40,28 +40,28 @@
           <button type="submit" class="btn btn-light" id="current-city-button">
             Current City
           </button>
+          <h1 class="city-name head float-left" id="city-display-name">
+            Boston
+          </h1>
+          <ul class="head-list d-flex flex-column">
+            <li id="display-date" class="head">Date Time</li>
+            <li class="head">Clear</li>
+          </ul>
           <div class="row">
-            <h1 class="col-8">
-              <ul class="head-list d-flex flex-column">
-                <li class="city-name head float-left" id="city-display-name">
-                  Boston
-                </li>
-                <li id="display-date" class="head">Date Time</li>
-                <li class="head">
-                  <span id="display-temp" class="float-left">34</span
-                  ><span class="float-left temp-units"
-                    >°F | <a href="#">°C</a></span
-                  >
-                </li>
+            <div class="col-md 6">
+              <span class="main-emoji">☁️</span>
+              <span id="display-temp" class="float-left">34</span
+              ><span class="float-left temp-units"
+                >°F | <a href="#">°C</a></span
+              >
+            </div>
+            <div class="col-md-6">
+              <ul class="d-flex flex-column">
+                <li class="head">Precipitation: 0%</li>
+                <li class="head">Humidity: 73%</li>
+                <li class="head">Wind: 2 mph</li>
               </ul>
-            </h1>
-            <h3 class="col-4 additional-info">
-              <ul>
-                <li class="details">
-                  <span class="float-right main-emoji">☁️</span>
-                </li>
-              </ul>
-            </h3>
+            </div>
           </div>
           <div class="row">
             <div class="col daily-col">
