@@ -1,16 +1,24 @@
 ///Changing city name and temp from search
 function displayWeather(response) {
-  document.querySelector("#city-display-name").innerHTML = response.data.name;
+  document.querySelector("#city-display-name").innerHTML = response.data.city;
+  document.querySelector("#condition-description").innerHTML =
+    response.data.condition.description;
   let cityTemp = document.querySelector("#display-temp");
-  cityTemp.innerHTML = Math.round(response.data.main.temp);
+  cityTemp.innerHTML = Math.round(response.data.temperature.current);
+  document.querySelector("#city-humidity").innerHTML =
+    response.data.temperature.humidity;
+  let realFeel = document.querySelector("#city-real-feel");
+  realFeel.innerHTML = Math.round(response.data.temperature.feels_like);
+  let windSpeed = document.querySelector("#city-wind-speed");
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function search(event) {
   event.preventDefault();
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "0t8c730526fo6e849d6726a6fd04bb53";
   let cityInput = document.querySelector("#city-search");
   let city = cityInput.value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
 }
 
@@ -25,10 +33,10 @@ function displayCurrent(response) {
 }
 
 function retrievePosition(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "0t8c730526fo6e849d6726a6fd04bb53";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let currentUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+  let currentUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
   axios.get(currentUrl).then(displayCurrent);
 }
 

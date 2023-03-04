@@ -45,7 +45,7 @@
           </h1>
           <ul class="head-list d-flex flex-column">
             <li id="display-date" class="head">Date Time</li>
-            <li class="head">Clear</li>
+            <li class="head" id="condition-description">clear</li>
           </ul>
           <div class="row">
             <div class="col-md 6">
@@ -57,9 +57,16 @@
             </div>
             <div class="col-md-6">
               <ul class="d-flex flex-column">
-                <li class="head"><strong>Precipitation:</strong> 0%</li>
-                <li class="head"><strong>Humidity:</strong> 73%</li>
-                <li class="head"><strong>Wind:</strong> 2 mph</li>
+                <li class="head">
+                  <strong>Real Feel:</strong>
+                  <span id="city-real-feel">0</span>°
+                </li>
+                <li class="head">
+                  <strong>Humidity:</strong> <span id="city-humidity">73</span>%
+                </li>
+                <li class="head">
+                  <strong>Wind:</strong> <span id="city-wind-speed">2</span> mph
+                </li>
               </ul>
             </div>
           </div>
