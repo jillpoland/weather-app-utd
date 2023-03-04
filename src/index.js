@@ -3,6 +3,9 @@ function displayWeather(response) {
   document.querySelector("#city-display-name").innerHTML = response.data.city;
   document.querySelector("#condition-description").innerHTML =
     response.data.condition.description;
+  let weatherImage = document.querySelector("#city-image");
+  weatherImage.setAttribute("src", response.data.condition.icon_url);
+  weatherImage.setAttribute("alt", response.data.condition.icon);
   let cityTemp = document.querySelector("#display-temp");
   cityTemp.innerHTML = Math.round(response.data.temperature.current);
   let realFeel = document.querySelector("#city-real-feel");
@@ -30,6 +33,9 @@ function displayCurrent(response) {
   document.querySelector("#city-display-name").innerHTML = response.data.city;
   document.querySelector("#condition-description").innerHTML =
     response.data.condition.description;
+  let weatherImage = document.querySelector("#city-image");
+  weatherImage.setAttribute("src", response.data.condition.icon_url);
+  weatherImage.setAttribute("alt", response.data.condition.icon);
   let cityTemp = document.querySelector("#display-temp");
   cityTemp.innerHTML = Math.round(response.data.temperature.current);
   let realFeel = document.querySelector("#city-real-feel");

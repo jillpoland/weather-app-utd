@@ -26,9 +26,9 @@
 .details {
   display: block;
 }
-.main-emoji {
-  font-size: 65px;
-  padding: 5px;
+#city-image {
+  padding: 0;
+  margin-bottom: 25px;
 }
 
 .daily-col {
