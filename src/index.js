@@ -1,18 +1,20 @@
 ///Changing city name and temp from search
+
 function displayWeather(response) {
+  let weatherImage = document.querySelector("#city-image");
+  let cityTemp = document.querySelector("#display-temp");
+  let realFeel = document.querySelector("#city-real-feel");
+  let windSpeed = document.querySelector("#city-wind-speed");
+
   document.querySelector("#city-display-name").innerHTML = response.data.city;
   document.querySelector("#condition-description").innerHTML =
     response.data.condition.description;
-  let weatherImage = document.querySelector("#city-image");
   weatherImage.setAttribute("src", response.data.condition.icon_url);
   weatherImage.setAttribute("alt", response.data.condition.icon);
-  let cityTemp = document.querySelector("#display-temp");
   cityTemp.innerHTML = Math.round(response.data.temperature.current);
-  let realFeel = document.querySelector("#city-real-feel");
   realFeel.innerHTML = Math.round(response.data.temperature.feels_like);
   document.querySelector("#city-humidity").innerHTML =
     response.data.temperature.humidity;
-  let windSpeed = document.querySelector("#city-wind-speed");
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
 }
 
@@ -30,19 +32,20 @@ cityDisplay.addEventListener("submit", search);
 
 ///Current Weather Button
 function displayCurrent(response) {
+  let weatherImage = document.querySelector("#city-image");
+  let cityTemp = document.querySelector("#display-temp");
+  let realFeel = document.querySelector("#city-real-feel");
+  let windSpeed = document.querySelector("#city-wind-speed");
+
   document.querySelector("#city-display-name").innerHTML = response.data.city;
   document.querySelector("#condition-description").innerHTML =
     response.data.condition.description;
-  let weatherImage = document.querySelector("#city-image");
   weatherImage.setAttribute("src", response.data.condition.icon_url);
   weatherImage.setAttribute("alt", response.data.condition.icon);
-  let cityTemp = document.querySelector("#display-temp");
   cityTemp.innerHTML = Math.round(response.data.temperature.current);
-  let realFeel = document.querySelector("#city-real-feel");
   realFeel.innerHTML = Math.round(response.data.temperature.feels_like);
   document.querySelector("#city-humidity").innerHTML =
     response.data.temperature.humidity;
-  let windSpeed = document.querySelector("#city-wind-speed");
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
 }
 
