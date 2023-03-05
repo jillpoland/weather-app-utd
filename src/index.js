@@ -1,11 +1,15 @@
 ///Changing city name and temp from search
 
-function displayWeather(response) {
-  let weatherImage = document.querySelector("#city-image");
-  let cityTemp = document.querySelector("#display-temp");
-  let realFeel = document.querySelector("#city-real-feel");
-  let windSpeed = document.querySelector("#city-wind-speed");
+let weatherImage = document.querySelector("#city-image");
+let cityTemp = document.querySelector("#display-temp");
+let realFeel = document.querySelector("#city-real-feel");
+let windSpeed = document.querySelector("#city-wind-speed");
+let fahrenheitTemp = null;
+let realFeelTemp = null;
 
+function displayWeather(response) {
+  fahrenheitTemp = response.data.temperature.current;
+  realFeelTemp = response.data.temperature.feels_like;
   document.querySelector("#city-display-name").innerHTML = response.data.city;
   document.querySelector("#condition-description").innerHTML =
     response.data.condition.description;
@@ -31,30 +35,12 @@ let cityDisplay = document.querySelector("#input-city");
 cityDisplay.addEventListener("submit", search);
 
 ///Current Weather Button
-function displayCurrent(response) {
-  let weatherImage = document.querySelector("#city-image");
-  let cityTemp = document.querySelector("#display-temp");
-  let realFeel = document.querySelector("#city-real-feel");
-  let windSpeed = document.querySelector("#city-wind-speed");
-
-  document.querySelector("#city-display-name").innerHTML = response.data.city;
-  document.querySelector("#condition-description").innerHTML =
-    response.data.condition.description;
-  weatherImage.setAttribute("src", response.data.condition.icon_url);
-  weatherImage.setAttribute("alt", response.data.condition.icon);
-  cityTemp.innerHTML = Math.round(response.data.temperature.current);
-  realFeel.innerHTML = Math.round(response.data.temperature.feels_like);
-  document.querySelector("#city-humidity").innerHTML =
-    response.data.temperature.humidity;
-  windSpeed.innerHTML = Math.round(response.data.wind.speed);
-}
-
 function retrievePosition(position) {
   let apiKey = "0t8c730526fo6e849d6726a6fd04bb53";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let currentUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
-  axios.get(currentUrl).then(displayCurrent);
+  axios.get(currentUrl).then(displayWeather);
 }
 
 function currentCityWeather() {
@@ -63,6 +49,34 @@ function currentCityWeather() {
 
 let currentButton = document.querySelector("#current-city-button");
 currentButton.addEventListener("click", currentCityWeather);
+
+///Converting Temperatures
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusConvert = ((fahrenheitTemp - 32) * 5) / 9;
+  let realFeelCelConvert = ((realFeelTemp - 32) * 5) / 9;
+  let tempDisplay = document.querySelector("#display-temp");
+  tempDisplay.innerHTML = Math.round(celsiusConvert);
+  realFeel.innerHTML = Math.round(realFeelCelConvert);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let tempDisplay = document.querySelector("#display-temp");
+  tempDisplay.innerHTML = Math.round(fahrenheitTemp);
+  realFeel.innerHTML = Math.round(realFeelTemp);
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+}
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 ///Displaying Date
 

@@ -96,5 +96,10 @@ button {
 
 #current-city-button {
   margin-top: 8px;
-  text-align: right;
+}
+
+.temp-units .active {
+  color: black;
+  cursor: default;
+  font-weight: bold;
 }
