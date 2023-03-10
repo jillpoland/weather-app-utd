@@ -31,7 +31,7 @@
   margin-bottom: 25px;
 }
 
-.daily-col {
+.forecast {
   text-align: center;
 }
 
@@ -40,20 +40,13 @@
   font-size: larger;
 }
 
-.emoji {
-  font-size: 50px;
-  text-align: center;
-}
-
-.daily-weather-stats {
-  font-weight: bold;
-  display: block;
-  text-align: center;
+.min-temp {
+  opacity: 0.6;
 }
 
 .signature {
   font-family: "PT Mono", monospace;
-  padding-left: 85px;
+  padding-left: 30px;
   margin: 20px auto;
 }
 
