@@ -6,6 +6,7 @@ let realFeel = document.querySelector("#city-real-feel");
 let windSpeed = document.querySelector("#city-wind-speed");
 let fahrenheitTemp = null;
 let realFeelTemp = null;
+let apiKey = "0t8c730526fo6e849d6726a6fd04bb53";
 
 function displayWeather(response) {
   fahrenheitTemp = response.data.temperature.current;
@@ -24,7 +25,6 @@ function displayWeather(response) {
 
 function search(event) {
   event.preventDefault();
-  let apiKey = "0t8c730526fo6e849d6726a6fd04bb53";
   let cityInput = document.querySelector("#city-search");
   let city = cityInput.value;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
@@ -34,9 +34,17 @@ function search(event) {
 let cityDisplay = document.querySelector("#input-city");
 cityDisplay.addEventListener("submit", search);
 
+///City Search Forecast API
+
+function getForecast() {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Boston&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+getForecast();
+
 ///Current Weather Button
 function retrievePosition(position) {
-  let apiKey = "0t8c730526fo6e849d6726a6fd04bb53";
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let currentUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=imperial`;
@@ -49,6 +57,8 @@ function currentCityWeather() {
 
 let currentButton = document.querySelector("#current-city-button");
 currentButton.addEventListener("click", currentCityWeather);
+
+///Current Weather Button Forecast API
 
 ///Converting Temperatures
 
@@ -80,7 +90,8 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 /// Looping forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   let forecastHTML = `<div class="row">`;
@@ -101,10 +112,8 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
-displayForecast();
 ///Displaying Date
 
 function formatDate(todaysDate) {
