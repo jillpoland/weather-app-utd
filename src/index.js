@@ -23,8 +23,7 @@ function displayWeather(response) {
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
 }
 
-function getForecast(coordinates) {
-  console.log(coordinates);
+function getForecast() {
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Boston&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
@@ -158,3 +157,5 @@ function formatDate(todaysDate) {
 let displayDate = document.querySelector("#display-date");
 let correctDate = formatDate(new Date());
 displayDate.innerHTML = correctDate;
+
+search("Boston");
