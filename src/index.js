@@ -23,6 +23,14 @@ function displayWeather(response) {
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Boston&key=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+getForecast();
+
 function search(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-search");
@@ -33,15 +41,6 @@ function search(event) {
 
 let cityDisplay = document.querySelector("#input-city");
 cityDisplay.addEventListener("submit", search);
-
-///City Search Forecast API
-
-function getForecast() {
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Boston&key=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayForecast);
-}
-
-getForecast();
 
 ///Current Weather Button
 function retrievePosition(position) {
@@ -90,28 +89,46 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 /// Looping forecast
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-              <div class="day" id="day-1">${day}</div>
-              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="clear-sky-day">
-             <div class="max-temp" id="day-1-maximum">
-                35°
+  forecast.forEach(function (forecast, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+              <div class="day">${formatDay(forecast.time)}</div>
+              <img src="${forecast.condition.icon_url}">
+               <div class="max-temp">
+                ${Math.round(forecast.temperature.maximum)}°
                 </div>
-                <div class="min-temp" id="day-1-minimum">
-                7°
+                <div class="min-temp">
+                ${Math.round(forecast.temperature.minimum)}°
               </div>
               </div>
     `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
 }
 
 ///Displaying Date
