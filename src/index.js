@@ -30,16 +30,21 @@ function getForecast(city) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function search(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-search");
-  let city = cityInput.value;
+function search(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeather);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-search");
+  search(cityInput.value);
+}
+
 let cityDisplay = document.querySelector("#input-city");
-cityDisplay.addEventListener("submit", search);
+cityDisplay.addEventListener("submit", handleSubmit);
+
+search("Boston");
 
 ///Current Weather Button
 function retrievePosition(position) {
