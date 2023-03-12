@@ -56,8 +56,6 @@ function currentCityWeather() {
 let currentButton = document.querySelector("#current-city-button");
 currentButton.addEventListener("click", currentCityWeather);
 
-///Current Weather Button Forecast API
-
 ///Converting Temperatures
 
 function displayCelsiusTemp(event) {
@@ -154,7 +152,7 @@ function formatDate(todaysDate) {
   return `${day} ${hours}:${minutes}`;
 }
 
-let displayDate = document.querySelector("#display-date");
+let displayDate = document.querySelector("#display-date-time");
 let correctDate = formatDate(new Date());
 displayDate.innerHTML = correctDate;
 

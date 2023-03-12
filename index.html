@@ -42,7 +42,9 @@
             Boston
           </h1>
           <ul class="head-list d-flex flex-column">
-            <li id="display-date" class="head">Date Time</li>
+            <li class="head display-date">
+              Last Updated: <span id="display-date-time">Date Time</span>
+            </li>
             <li class="head" id="condition-description">clear</li>
           </ul>
           <div class="row">
@@ -74,22 +76,20 @@
             </div>
           </div>
           <div class="forecast" id="forecast">
-          <div class="row">
-            <div class="col-2">
-              <div class="day" id="day-1">Monday</div>
-              <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="clear-sky-day">
-             <div class="max-temp" id="day-1-maximum">
-                35°
-                </div>
-                <div class="min-temp" id="day-1-minimum">
-                7°
+            <div class="row">
+              <div class="col-2">
+                <div class="day" id="day-1">Monday</div>
+                <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                  alt="clear-sky-day"
+                />
+                <div class="max-temp" id="day-1-maximum">35°</div>
+                <div class="min-temp" id="day-1-minimum">7°</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-     <div class="signature">
+        <div class="signature">
           <a
             href="https://github.com/jillpoland/weather-app-utd"
             target="_blank"
@@ -97,6 +97,8 @@
           >
           by Jillian Poland 👩‍💻
         </div>
-     </body>
-    <script src="src/index.js"></script>
+      </div>
+    </div>
+  </body>
+  <script src="src/index.js"></script>
 </html>

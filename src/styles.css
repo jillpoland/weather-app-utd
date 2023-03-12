@@ -1,6 +1,7 @@
 .weather-app-wrapper {
   max-width: 650px;
   margin: auto;
+  min-width: 500px;
 }
 
 .weather-app {
@@ -46,11 +47,11 @@
 
 .signature {
   font-family: "PT Mono", monospace;
-  padding-left: 30px;
+  padding-left: 5px;
   margin: 20px auto;
 }
 
-#display-date {
+.display-date {
   font-size: 20px;
 }
 
