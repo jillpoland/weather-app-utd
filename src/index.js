@@ -21,14 +21,14 @@ function displayWeather(response) {
   document.querySelector("#city-humidity").innerHTML =
     response.data.temperature.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
+
+  getForecast(response.data.city);
 }
 
-function getForecast() {
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=Boston&key=${apiKey}&units=imperial`;
+function getForecast(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
-
-getForecast();
 
 function search(event) {
   event.preventDefault();
@@ -155,5 +155,3 @@ function formatDate(todaysDate) {
 let displayDate = document.querySelector("#display-date-time");
 let correctDate = formatDate(new Date());
 displayDate.innerHTML = correctDate;
-
-search("Boston");
